@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Sender from "./sender";
 import {
   MdRefresh,
@@ -8,12 +8,15 @@ import {
 } from "react-icons/md";
 import pic from "./richpanel.jpg";
 import styles from "./agentscreen.module.css";
+import { stringify } from "@firebase/util";
 
 const Agent = ({ userData, senderData }) => {
   let senderContent;
   const [user, setUser] = useState();
   const [sender, setSender] = useState();
   const [selecteduser, setSelecteduser] = useState();
+  const [mymsg, setMymsg] = useState([]);
+  const inputElement = useRef();
 
   const callBack = (name, msg) => {
     setSelecteduser({ name: name, msg: msg });
@@ -35,7 +38,15 @@ const Agent = ({ userData, senderData }) => {
         });
     };
     fetchdata();
-  });
+  }, []);
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      setMymsg([...mymsg, event.target.value]);
+      console.log(inputElement);
+      inputElement.current.value = "";
+    }
+  };
 
   return (
     <div className={styles.box}>
@@ -66,10 +77,10 @@ const Agent = ({ userData, senderData }) => {
 
         <div className={styles.sendercontent}>{senderContent}</div>
       </div>
+
+      <div className={styles.heading3}>{selecteduser && selecteduser.name}</div>
       <div className={styles.col3}>
-        <div className={styles.heading}>
-          {selecteduser && selecteduser.name}
-        </div>
+        <div clasName={styles.msgscreen}></div>
         {selecteduser && selecteduser.msg ? (
           <div className={styles.msgcontent}>
             {selecteduser && selecteduser.msg}
@@ -77,9 +88,23 @@ const Agent = ({ userData, senderData }) => {
         ) : (
           ""
         )}
-
-        <input className={styles.input} placeholder={"Message"}></input>
+        {mymsg
+          ? mymsg.map((msg, i) => {
+              return (
+                <div key={i} className={styles.msgcontent2}>
+                  {msg}
+                </div>
+              );
+            })
+          : ""}
       </div>
+      <input
+        className={styles.input}
+        placeholder={"Message"}
+        // value={reset}
+        ref={inputElement}
+        onKeyPress={(e) => handleKeyPress(e)}
+      ></input>
       <div className={styles.col4}>
         <div className={styles.heading2}>
           {selecteduser && <div className={styles.profilepic}></div>}
