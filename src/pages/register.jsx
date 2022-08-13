@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
-  signInWithEmailAndPassword, 
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import styles from "./register.module.css";
 import { auth } from "./firebase-config";

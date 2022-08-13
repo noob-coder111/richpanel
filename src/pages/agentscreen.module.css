@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(237, 231, 231);
+}
+
 .box {
   display: flex;
   position: absolute;
@@ -19,23 +23,42 @@
 }
 .col3 {
   border: 1px solid rgb(248, 241, 241);
-  width: 700px;
-  background-color: rgb(252, 248, 248);
+  width: 719px;
+  background-color: rgb(237, 231, 231);
+  margin-top: 61px;
+  margin-left: -720px;
+  margin-bottom: 60px;
   text-align: center;
+  overflow-x: hidden;
+  overflow-y: 500px;
 }
 .col4 {
   border: 1px solid rgb(248, 241, 241);
-  width: 380px;
+  width: 360px;
   text-align: center;
-  background-color: rgb(241, 231, 231);
+  background-color: rgb(226, 218, 218);
 }
 .heading {
   border-bottom: 2px solid rgb(218, 209, 209);
   background-color: white;
   height: 50px;
   display: flex;
+  top: 0;
   padding-top: 10px;
   font-size: 25px;
+  font-weight: bolder;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgba(0, 0, 0, 0.832);
+}
+.heading3 {
+  border-bottom: 2px solid rgb(218, 209, 209);
+  background-color: rgb(255, 252, 252);
+  height: 50px;
+  /* display: flex; */
+  padding-top: 10px;
+  font-size: 25px;
+  width: 700px;
+  padding-left: 20px;
   font-weight: bolder;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgba(0, 0, 0, 0.832);
@@ -76,13 +99,17 @@
 }
 
 .input {
-  margin-top: 520px;
-  margin-right: 25px;
-  margin-left: -20px;
-  width: 620px;
+  position: relative;
+
+  margin-top: 650px;
+
+  width: 635px;
   height: 40px;
   border-radius: 10px;
   padding-left: 20px;
+  margin-left: -700px;
+  margin-right: 20px;
+
   border-color: rgba(42, 42, 133, 0.877);
 }
 
@@ -118,13 +145,32 @@
   background-color: white;
   /* height: 80px; */
   /* width: 180px; */
-  max-width: 80%;
+  max-width: 60%;
   /* min-width: 10%; */
   text-align: left;
   font: small;
   padding: 10px;
+  margin-left: 10px;
   border-radius: 5px;
-  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* position: relative; */
+}
+
+.msgcontent2 {
+  border: 1px solid rgb(212, 205, 205);
+  background-color: white;
+  /* height: 80px; */
+  /* width: 180px; */
+  max-width: 60%;
+  /* min-width: 10%; */
+  text-align: left;
+  font: small;
+  padding: 10px;
+  margin-left: 240px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   /* position: relative; */
 }
 
